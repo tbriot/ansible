@@ -1,0 +1,7 @@
+- name: Install ZSH
+  ansible.builtin.apt:
+    name: zsh=5.8.1-1 
+
+- name: Change shell to zsh
+  ansible.builtin.shell: chsh -s $(which zsh)
+  become: true
