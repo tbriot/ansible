@@ -3,3 +3,4 @@
 # Uninstall zsh
 chsh /bin/bash
 apt purge zsh
+rm -f ~/powerlevel10k

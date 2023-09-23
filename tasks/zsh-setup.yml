@@ -1,7 +1,19 @@
-- name: Install ZSH
+- name: Install zsh
   ansible.builtin.apt:
     name: zsh=5.8.1-1 
 
 - name: Change shell to zsh
   ansible.builtin.shell: chsh -s $(which zsh)
   become: true
+
+- name: Check if powerlevel10k theme is installed
+  stat:
+    path: ~/powerlevel10k
+  register: powerlevel10k_stats
+
+- name: Install zsh Theme powerlevel10k
+  ansible.builtin.git:
+    repo: https://gitee.com/romkatv/powerlevel10k.git
+    depth: 1
+    dest: ~/powerlevel10k 
+  when: powerlevel10k_stats.stat.exists == False
