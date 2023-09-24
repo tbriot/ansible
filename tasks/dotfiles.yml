@@ -4,7 +4,7 @@
     dest: /tmp/dotfiles
     update: true
     accept_hostkey: true
-    version: master 
+    version: main 
 
 - name: Installing dotfiles
   ansible.builtin.shell: cd /tmp/dotfiles && ./install.sh
