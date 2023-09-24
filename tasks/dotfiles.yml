@@ -8,3 +8,8 @@
 
 - name: Installing dotfiles
   ansible.builtin.shell: cd /tmp/dotfiles && ./install.sh
+
+- name: Making sure .gitconfig is absent
+  ansible.builtin.file:
+    path: $HOME/.gitconfig
+    state: absent
