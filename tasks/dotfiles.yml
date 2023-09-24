@@ -1,0 +1,10 @@
+- name: Cloning dotfiles
+  ansible.builtin.git:
+    repo: git@github.com:tbriot/dotfiles.git
+    dest: /tmp/dotfiles
+    update: true
+    accept_hostkey: true
+    version: master 
+
+- name: Installing dotfiles
+  ansible.builtin.shell: cd /tmp/dotfiles && ./install.sh
