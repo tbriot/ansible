@@ -15,4 +15,4 @@ rm -fr $XDG_CONFIG_HOME/zsh
 rm -fr ~/.ssh
 
 # Delete packages
-sudo apt -y purge tmux
+sudo apt -y purge tmux alacritty i3 curl git
