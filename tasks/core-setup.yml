@@ -1,0 +1,4 @@
+- name: Install packages
+  become: true
+  apt:
+    name: [ "curl", "git", "i3", "python3-pip" ]
