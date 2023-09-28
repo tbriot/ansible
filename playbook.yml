@@ -9,6 +9,7 @@
     - include_tasks: tasks/core-setup.yml
     - include_tasks: tasks/zsh-setup.yml
     - include_tasks: tasks/alacritty.yml
+    - include_tasks: tasks/fonts.yml
     #- include: tasks/personal-projects.yml
     #- include: tasks/nvim-setup.yml
     #- include: tasks/debugger.yml
