@@ -1,0 +1,4 @@
+- name: Download Golang
+  ansible.builtin.get_url:
+    url: https://go.dev/dl/go1.21.1.linux-amd64.tar.gz 
+    dest: /tmp/install-golang
