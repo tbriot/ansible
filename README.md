@@ -17,7 +17,7 @@ git clone https://github.com/tbriot/ansible.git $INSTALL_DIR
 ## Run ansible playbook
 
 ```bash
-./run-playbook.yml
+./run-playbook.sh
 ```
 
 'BECOME password' is your unix user password (so that ansible can run sudo commands)
