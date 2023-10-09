@@ -3,13 +3,21 @@
 ## Install Ansible on your local machine
 
 ```bash
-./install-ansible.sh
+wget -O - https://raw.githubusercontent.com/tbriot/ansible/main/install-ansible.sh | bash
+```
+Note: git is also installed
+
+## Clone repository 
+```bash
+INSTALL_DIR=$HOME/development/tbriot/ansible
+mkdir -p $INSTALL_DIR && cd $INSTALL_DIR
+git clone https://github.com/tbriot/ansible.git $INSTALL_DIR
 ```
 
 ## Run ansible playbook
 
 ```bash
-./install.sh
+./run-playbook.yml
 ```
 
 'BECOME password' is your unix user password (so that ansible can run sudo commands)
