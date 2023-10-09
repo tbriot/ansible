@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-docker run -it --rm fresh-install /bin/bash
+sudo docker run -it --rm fresh-install /bin/bash
