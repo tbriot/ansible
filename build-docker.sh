@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-docker build . -t fresh-install
+sudo docker build . -t fresh-install
