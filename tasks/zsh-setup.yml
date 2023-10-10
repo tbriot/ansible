@@ -1,6 +1,6 @@
 - name: Install zsh
   ansible.builtin.apt:
-    name: zsh=5.8.1-1 
+    name: zsh
 
 - name: Change shell to zsh
   ansible.builtin.shell: chsh -s $(which zsh)
@@ -11,9 +11,33 @@
     path: ~/powerlevel10k
   register: powerlevel10k_stats
 
-- name: Install zsh Theme powerlevel10k
+- name: Install powerlevel10k
   ansible.builtin.git:
     repo: https://gitee.com/romkatv/powerlevel10k.git
     depth: 1
     dest: ~/powerlevel10k 
   when: powerlevel10k_stats.stat.exists == False
+
+- name: Download Meslo Nerd Font patched for Powelevel 10k (zsh theme)
+  become: true
+  ansible.builtin.get_url:
+    url: https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
+    dest: /usr/local/share/fonts/MesloLGS-NF-Regular.ttf
+
+- name: Download Meslo Nerd Font patched for Powelevel 10k (zsh theme)
+  become: true
+  ansible.builtin.get_url:
+    url: https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
+    dest: /usr/local/share/fonts/MesloLGS-NF-Bold.ttf
+
+- name: Download Meslo Nerd Font patched for Powelevel 10k (zsh theme)
+  become: true
+  ansible.builtin.get_url:
+    url: https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
+    dest: /usr/local/share/fonts/MesloLGS-NF-Italic.ttf
+
+- name: Download Meslo Nerd Font patched for Powelevel 10k (zsh theme)
+  become: true
+  ansible.builtin.get_url:
+    url: https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+    dest: /usr/local/share/fonts/MesloLGS-NF-Bold-Italic.ttf

@@ -5,11 +5,9 @@
     dest_key: $HOME/.ssh/id_ed25519_tbriot
   tasks: 
     - include_tasks: tasks/ssh.yml
-    #- include: tasks/git-setup.yml
-    #- include_tasks: tasks/core-setup.yml
-    #- include_tasks: tasks/zsh-setup.yml
+    - include_tasks: tasks/core-setup.yml
+    - include_tasks: tasks/zsh-setup.yml
     #- include_tasks: tasks/alacritty.yml
-    #- include_tasks: tasks/fonts.yml
     #- include: tasks/personal-projects.yml
     #- include: tasks/nvim-setup.yml
     #- include: tasks/debugger.yml
