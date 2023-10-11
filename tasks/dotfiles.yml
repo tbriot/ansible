@@ -1,6 +1,6 @@
 - name: Installing stow
   become: true
-  ansible.buitlin.apt:
+  ansible.builtin.apt:
     name: [ "stow" ]
 
 - name: Cloning dotfiles
