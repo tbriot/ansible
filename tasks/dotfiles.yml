@@ -1,15 +1,20 @@
+- name: Installing stow
+  become: true
+  ansible.buitlin.apt:
+    name: [ "stow" ]
+
 - name: Cloning dotfiles
   ansible.builtin.git:
     repo: https://github.com/tbriot/dotfiles.git
-    dest: /tmp/dotfiles
+    dest: ~/.dotfiles
     update: true
     accept_hostkey: true
     version: main 
 
 - name: Installing dotfiles
-  ansible.builtin.shell: cd /tmp/dotfiles && ./install.sh
+  ansible.builtin.shell: cd ~/.dotfiles && ./install.sh
 
 - name: Making sure .gitconfig is absent
   ansible.builtin.file:
-    path: $HOME/.gitconfig
+    path: ~/.gitconfig
     state: absent
