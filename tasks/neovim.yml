@@ -14,7 +14,7 @@
     - neovim
 - name: Clone neovim
   ansible.builtin.git:
-    path: https://github.com/neovim/neovim
+    repo: https://github.com/neovim/neovim
     dest: "{{ neovim_tmp_install_dir }}"
     version: stable
   tags:
