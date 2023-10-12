@@ -1,14 +1,14 @@
 - name: Create directory for personal development projects
   ansible.builtin.file:
-    path: {{ personal_project_dir }}
+    path: "{{ personal_project_dir }}"
     state: directory
   tags:
     - install
     - personal-projects
-- name: Personal Project Harpoon
-  ansible.builtin.git:
-    repo: git@github.com:tbriot/go-webapp-hello-world.git
-    dest: "{{ personal_project_dir }}/go-webapp-hello-world"
-  tags:
-    - install
-    - personal-projects
+      #- name: Personal Project Harpoon
+      #  ansible.builtin.git:
+      #    repo: git@github.com:tbriot/go-webapp-hello-world.git
+      #    dest: "{{ personal_project_dir }}/go-webapp-hello-world"
+      #  tags:
+      #    - install
+      #    - personal-projects
