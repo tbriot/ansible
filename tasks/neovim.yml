@@ -5,9 +5,16 @@
   tags:
     - install
     - neovim
-- name: Remove previous cloned directory
+- name: Remove previous temp directory
   ansible.builtin.file:
     path: "{{ neovim_tmp_install_dir }}"
+    state: absent
+  tags:
+    - install
+    - neovim
+- name: Remove previous neovim install
+  ansible.builtin.file:
+    path: "{{ neovim_bin_dir }}"
     state: absent
   tags:
     - install
