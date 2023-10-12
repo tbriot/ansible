@@ -4,8 +4,8 @@
     source_key: .ssh/id_ed25519_tbriot
     dest_key: ~/.ssh/id_ed25519_tbriot
     personal_project_dir: ~/development/tbriot
-    neovim_install_dir:  ~/neovim
-    neovim_bin_dir:  ~/neovim/bin
+    neovim_tmp_install_dir:  /tmp/neovimn
+    neovim_bin_dir:  ~/neovim
   tasks: 
     - include_tasks: tasks/ssh.yml
     - include_tasks: tasks/core-setup.yml
