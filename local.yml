@@ -2,16 +2,17 @@
   connection: local
   vars:
     source_key: .ssh/id_ed25519_tbriot
-    dest_key: $HOME/.ssh/id_ed25519_tbriot
+    dest_key: ~/.ssh/id_ed25519_tbriot
+    personal_project_dir: ~/development/tbriot
   tasks: 
     - include_tasks: tasks/ssh.yml
     - include_tasks: tasks/core-setup.yml
     - include_tasks: tasks/zsh-setup.yml
     - include_tasks: tasks/dotfiles.yml
+    - include_tasks: tasks/personal-projects.yml
+    - include_tasks: tasks/neovim.yml
+    - include_tasks: tasks/productivity-tools.yml
     #- include_tasks: tasks/alacritty.yml
-    #- include: tasks/personal-projects.yml
-    #- include: tasks/nvim-setup.yml
     #- include: tasks/debugger.yml
-    #- include_tasks: tasks/productivity-tools.yml
     #- include_tasks: tasks/lsp.yml
     #- include_tasks: tasks/golang.yml
