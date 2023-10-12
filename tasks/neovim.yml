@@ -1,7 +1,36 @@
-- name: Install neovim with apt
+- name: Install neovim build prerequisites
   become: true
   ansible.builtin.apt:
-    name: neovim
+    name: [ "ninja-build", "gettext", "cmake", "unzip", "curl" ]
+  tags:
+    - install
+    - neovim
+- name: Remove previous cloned directory
+  ansible.builtin.file:
+    path: "{{ neovim_install_dir }}"
+    state: absent
+  tags:
+    - install
+    - neovim
+- name: Clone neovim
+  ansible.builtin.git:
+    path: https://github.com/neovim/neovim
+    dest: "{{ neovim_install_dir }}"
+    version: stable
+  tags:
+    - install
+    - neovim
+- name: Build neovim
+  ansible.builtin.shell:
+    chdir: "{{ neovim_install_dir }}"
+    cmd: make CMAKE_BUILD_TYPE=Release
+  tags:
+    - install
+    - neovim
+- name: Install neovim
+  ansible.builtin.shell:
+    chdir: "{{ neovim_install_dir }}"
+    cmd: "make CMAKE_INSTALL_PREFIX={{ neovim_bin_dir }} install"
   tags:
     - install
     - neovim
