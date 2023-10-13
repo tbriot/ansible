@@ -23,3 +23,12 @@ git clone https://github.com/tbriot/ansible.git $INSTALL_DIR
 'BECOME password' is your unix user password (so that ansible can run sudo commands)
 
 'Vault password' is the Ansible Vault password (to decrypt the ssh private key)
+
+## Load neovim plugins
+
+```bash
+vim ~/.config/nvim/lua/tbriot/packer.lua
+```
+Enter ":so" to source the packer.lua file
+Enter ":PackerSync" to download all the plugins 
+Relaunch neovim
