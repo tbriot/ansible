@@ -29,6 +29,6 @@ git clone https://github.com/tbriot/ansible.git $INSTALL_DIR
 ```bash
 vim ~/.config/nvim/lua/tbriot/packer.lua
 ```
-Enter ":so" to source the packer.lua file
-Enter ":PackerSync" to download all the plugins 
+Enter ":so" to source the packer.lua file  
+Enter ":PackerSync" to download all the plugins   
 Relaunch neovim
