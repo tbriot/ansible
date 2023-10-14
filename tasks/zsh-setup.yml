@@ -49,5 +49,5 @@
 - name: Install zsh-autosuggestions
   ansible.builtin.git:
     repo: https://github.com/zsh-users/zsh-autosuggestions
-    dest: ~/.local/bin/zsh/zsh-autosuggestions
+    dest: ~/zsh-autosuggestions
     depth: 1
