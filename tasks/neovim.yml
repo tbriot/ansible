@@ -5,30 +5,30 @@
 
 - name: Remove previous temp directory
   ansible.builtin.file:
-    path: "{{ neovim_tmp_install_dir }}"
+    path: "{{ neovim_build_dir }}"
     state: absent
       
 - name: Remove previous neovim install
   ansible.builtin.file:
-    path: "{{ neovim_bin_dir }}"
+    path: "{{ neovim_install_dir }}"
     state: absent
 
 - name: Clone neovim
   ansible.builtin.git:
     repo: https://github.com/neovim/neovim
-    dest: "{{ neovim_tmp_install_dir }}"
+    dest: "{{ neovim_build_dir }}"
     depth: 1
     version: stable
 
 - name: Build neovim
   ansible.builtin.shell:
-    chdir: "{{ neovim_tmp_install_dir }}"
+    chdir: "{{ neovim_build_dir }}"
     cmd: make CMAKE_BUILD_TYPE=Release
 
 - name: Install neovim
   ansible.builtin.shell:
-    chdir: "{{ neovim_tmp_install_dir }}"
-    cmd: "make CMAKE_INSTALL_PREFIX={{ neovim_bin_dir }} install"
+    chdir: "{{ neovim_build_dir }}"
+    cmd: "make CMAKE_INSTALL_PREFIX={{ neovim_install_dir }} install"
 
 - name: Get Packer (plugin manager)
   ansible.builtin.git:
