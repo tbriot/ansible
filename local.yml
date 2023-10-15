@@ -25,7 +25,7 @@
       tags: [ neovim ] 
       vars:
         - neovim_build_dir: /tmp/neovim
-        - neovim_install_dir: ~/.local/bin
+        - neovim_install_dir: ~/.local
 
     - import_tasks: tasks/productivity-tools.yml
       tags: [ productivity ] 
