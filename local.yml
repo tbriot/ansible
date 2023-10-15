@@ -8,7 +8,7 @@
       tags: [ ssh ] 
       vars:
         source_key: ssh/id_ed25519_tbriot
-        dest_key: .ssh/id_ed25519_tbriot
+        dest_key: ~/.ssh/id_ed25519_tbriot
 
     - import_tasks: tasks/zsh.yml
       tags: [ zsh ] 
