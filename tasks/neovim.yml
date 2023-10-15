@@ -17,6 +17,7 @@
   ansible.builtin.git:
     repo: https://github.com/neovim/neovim
     dest: "{{ neovim_tmp_install_dir }}"
+    depth: 1
     version: stable
 
 - name: Build neovim

@@ -1,29 +1,31 @@
 - hosts: localhost
   connection: local
-  vars:
-    personal_project_dir: ~/development/tbriot
   tasks: 
+    - import_tasks: tasks/core.yml
+      tags: [ core ] 
+
     - import_tasks: tasks/ssh.yml
       tags: [ ssh ] 
       vars:
         source_key: ssh/id_ed25519_tbriot
         dest_key: ssh/id_ed25519_tbriot
-    - import_tasks: tasks/core.yml
-      tags: [ core ] 
+
     - import_tasks: tasks/zsh.yml
       tags: [ zsh ] 
+
     - import_tasks: tasks/dotfiles.yml
       tags: [ dotfiles ] 
+
     - import_tasks: tasks/projects.yml
       tags: [ projetcs ] 
+      vars:
+        personal_project_dir: ~/development/tbriot
+
     - import_tasks: tasks/neovim.yml
       tags: [ neovim ] 
       vars:
         - neovim_tmp_install_dir:  /tmp/neovim
         - neovim_bin_dir: ~/neovim
+
     - import_tasks: tasks/productivity-tools.yml
       tags: [ productivity ] 
-    #- import_tasks: tasks/alacritty.yml
-    #- import: tasks/debugger.yml
-    #- import_tasks: tasks/lsp.yml
-    #- import_tasks: tasks/golang.yml
