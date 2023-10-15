@@ -2,50 +2,35 @@
   become: true
   ansible.builtin.apt:
     name: [ "ninja-build", "gettext", "cmake", "unzip", "curl" ]
-  tags:
-    - install
-    - neovim
+
 - name: Remove previous temp directory
   ansible.builtin.file:
     path: "{{ neovim_tmp_install_dir }}"
     state: absent
-  tags:
-    - install
-    - neovim
+      
 - name: Remove previous neovim install
   ansible.builtin.file:
     path: "{{ neovim_bin_dir }}"
     state: absent
-  tags:
-    - install
-    - neovim
+
 - name: Clone neovim
   ansible.builtin.git:
     repo: https://github.com/neovim/neovim
     dest: "{{ neovim_tmp_install_dir }}"
     version: stable
-  tags:
-    - install
-    - neovim
+
 - name: Build neovim
   ansible.builtin.shell:
     chdir: "{{ neovim_tmp_install_dir }}"
     cmd: make CMAKE_BUILD_TYPE=Release
-  tags:
-    - install
-    - neovim
+
 - name: Install neovim
   ansible.builtin.shell:
     chdir: "{{ neovim_tmp_install_dir }}"
     cmd: "make CMAKE_INSTALL_PREFIX={{ neovim_bin_dir }} install"
-  tags:
-    - install
-    - neovim
+
 - name: Get Packer (plugin manager)
   ansible.builtin.git:
     repo: https://github.com/wbthomason/packer.nvim
     dest: ~/.local/share/nvim/site/pack/packer/start/packer.nvim
     depth: 1
-  tags:
-    - install
-    - neovim
