@@ -1,12 +1,13 @@
 - hosts: localhost
   connection: local
   vars:
-    source_key: .ssh/id_ed25519_tbriot
-    dest_key: ~/.ssh/id_ed25519_tbriot
     personal_project_dir: ~/development/tbriot
   tasks: 
     - import_tasks: tasks/ssh.yml
       tags: [ ssh ] 
+      vars:
+        source_key: ssh/id_ed25519_tbriot
+        dest_key: ssh/id_ed25519_tbriot
     - import_tasks: tasks/core.yml
       tags: [ core ] 
     - import_tasks: tasks/zsh.yml

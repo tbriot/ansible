@@ -13,14 +13,14 @@
 
 - name: Check if powerlevel10k theme is installed
   stat:
-    path: ~/powerlevel10k
+    path: ~/zsh-plugins/powerlevel10k
   register: powerlevel10k_stats
 
 - name: Install powerlevel10k
   ansible.builtin.git:
     repo: https://gitee.com/romkatv/powerlevel10k.git
+    dest: ~/zsh-plugins/powerlevel10k 
     depth: 1
-    dest: ~/powerlevel10k 
   when: powerlevel10k_stats.stat.exists == False
 
 - name: Download Meslo Nerd Font patched for Powelevel 10k (zsh theme)
@@ -50,5 +50,5 @@
 - name: Install zsh-autosuggestions
   ansible.builtin.git:
     repo: https://github.com/zsh-users/zsh-autosuggestions
-    dest: ~/zsh-autosuggestions
+    dest: ~/zsh-plugins/zsh-autosuggestions
     depth: 1

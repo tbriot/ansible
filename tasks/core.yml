@@ -1,4 +1,4 @@
-- name: Install packages for utilities
+- name: Install core system packages
   become: true
   apt:
     name: [ "curl", "unzip", "git", "python3-pip" ]
