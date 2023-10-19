@@ -4,6 +4,9 @@
     - import_tasks: tasks/core.yml
       tags: [ core ] 
 
+    - import_tasks: tasks/productivity-tools.yml
+      tags: [ productivity ] 
+
     - import_tasks: tasks/ssh.yml
       tags: [ ssh ] 
       vars:
@@ -26,6 +29,3 @@
       vars:
         - neovim_build_dir: /tmp/neovim
         - neovim_install_dir: ~/.local
-
-    - import_tasks: tasks/productivity-tools.yml
-      tags: [ productivity ] 
