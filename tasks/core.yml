@@ -1,4 +1,4 @@
 - name: Install core system packages
   become: true
   apt:
-    name: [ "curl", "unzip", "git", "python3-pip" ]
+    name: [ "curl", "unzip", "git", "python3-pip", "xclip" ]
