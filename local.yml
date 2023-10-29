@@ -19,8 +19,13 @@
     - import_tasks: tasks/dotfiles.yml
       tags: [ dotfiles ] 
 
+    - import_tasks: tasks/go.yml
+      tags: [ go ] 
+      vars:
+        - go_download_archive: go1.21.3.linux-amd64.tar.gz 
+
     - import_tasks: tasks/projects.yml
-      tags: [ projetcs ] 
+      tags: [ projects ] 
       vars:
         personal_project_dir: ~/development/tbriot
 

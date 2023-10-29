@@ -1,4 +1,14 @@
 - name: Download Golang
   ansible.builtin.get_url:
-    url: https://go.dev/dl/go1.21.1.linux-amd64.tar.gz 
+    url: "https://go.dev/dl/{{ go_download_archive }}"
     dest: /tmp/install-golang
+
+- name: Remove previous Go installation
+  ansible.builtin.file:
+    path: "/usr/local/go"
+    state: absent
+      
+- name: Extract archive
+  ansible.builtin.unarchive:
+    src: "/tmp/install-golang/{{ go_download_archive }}"
+    dest: /usr/local
