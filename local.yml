@@ -19,8 +19,8 @@
     - import_tasks: tasks/dotfiles.yml
       tags: [ dotfiles ] 
 
-    - import_tasks: tasks/go.yml
-      tags: [ go ] 
+    - import_tasks: tasks/golang.yml
+      tags: [ golang ] 
       vars:
         - go_download_archive: go1.21.3.linux-amd64.tar.gz 
 
