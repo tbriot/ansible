@@ -29,6 +29,7 @@
   when: powerlevel10k_stats.stat.exists == False
 
 - name: Create directory for fonts
+  become: true
   ansible.builtin.file:
     path: /usr/local/share/fonts
     state: directory
