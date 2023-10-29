@@ -35,3 +35,9 @@
     repo: https://github.com/wbthomason/packer.nvim
     dest: ~/.local/share/nvim/site/pack/packer/start/packer.nvim
     depth: 1
+
+- name: Install neovim plugins prerequisites
+  become: true
+  ansible.builtin.apt:
+    name: [ "ripgrep" ]
+
