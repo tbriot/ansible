@@ -28,6 +28,11 @@
     depth: 1
   when: powerlevel10k_stats.stat.exists == False
 
+- name: Create directory for fonts
+  ansible.builtin.file:
+    path: /usr/local/share/fonts
+    state: directory
+
 - name: Download Meslo Nerd Font patched for Powelevel 10k (zsh theme)
   become: true
   ansible.builtin.get_url:
