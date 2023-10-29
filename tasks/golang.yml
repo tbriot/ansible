@@ -1,3 +1,8 @@
+- name: Create temp directory
+  ansible.builtin.file:
+    path: /tmp/golang-download
+    state: directory
+      
 - name: Download Golang
   ansible.builtin.get_url:
     url: "https://go.dev/dl/{{ go_download_archive }}"
