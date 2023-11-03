@@ -29,6 +29,9 @@
       vars:
         - python_version: 3.11 
 
+    - import_tasks: tasks/terraform.yml
+      tags: [ terraform ] 
+
     - import_tasks: tasks/projects.yml
       tags: [ projects ] 
       vars:
