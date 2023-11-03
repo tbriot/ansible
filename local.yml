@@ -24,6 +24,11 @@
       vars:
         - go_download_archive: go1.21.3.linux-amd64.tar.gz 
 
+    - import_tasks: tasks/python.yml
+      tags: [ python ] 
+      vars:
+        - python_version: 3.11 
+
     - import_tasks: tasks/projects.yml
       tags: [ projects ] 
       vars:

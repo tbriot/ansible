@@ -1,0 +1,18 @@
+- name: Install packages
+  become: true
+  apt:
+    name: [ "python{{ python_version }}", "python{{ python_version }}-venv", "python3-pip"]
+
+- name: Create symbolic link for python
+  become: true
+  ansible.builtin.file:
+    source: /usr/bin/python
+    dest: /usr/bin/python3
+    state: link
+
+- name: Create symbolic link for python3
+  become: true
+  ansible.builtin.file:
+    source: /usr/bin/python3
+    dest: /usr/bin/python{{ python_version }}
+    state: link
