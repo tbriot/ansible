@@ -1,20 +1,8 @@
-- name: Install the HashiCorp GPG key
+- name: Install TFSwitch
   become: true
   ansible.builtin.shell: >
-    wget -O- https://apt.releases.hashicorp.com/gpg |
-    gpg --dearmor
-    > /usr/share/keyrings/hashicorp-archive-keyring.gpg
+    curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh
+    | bash
 
-- name: Add the official HashiCorp repository
-  become: true
-  ansible.builtin.shell: >
-    echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg]
-    https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-    > /etc/apt/sources.list.d/hashicorp.list
-
-- name: Install package
-  become: true
-  ansible.builtin.apt:
-    update_cache: true
-    name: [ "terraform"]
-
+- name: Install Terraform latest version
+  ansible.builtin.shell: tfswitch --latest
