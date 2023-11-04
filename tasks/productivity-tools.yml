@@ -2,3 +2,8 @@
   become: true
   apt:
     name: [ "tmux", "fzf", "i3"]
+
+- name: Install pre-commit
+  ansible.builtin.pip:
+    name: pre-commit
+
