@@ -9,6 +9,7 @@
     dest: /tmp/golang-download/
 
 - name: Remove previous Go installation
+  become: true
   ansible.builtin.file:
     path: "/usr/local/go"
     state: absent
