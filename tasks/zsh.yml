@@ -13,7 +13,7 @@
 
 - name: Create directory for zsh history file
   ansible.builtin.file:
-    path: $XDG_CACHE_HOME/zsh
+    path: ~/.cache/zsh
     state: directory
 
 - name: Check if powerlevel10k theme is installed
