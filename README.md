@@ -43,7 +43,7 @@ git remote set-url origin git@github.com:tbriot/dotfiles.git
 v ~/.config/nvim/lua/tbriot/packer.lua
 ```
 
-Ignore error messages
+Ignore error messages  
 Enter ":so" to source the packer.lua file  
 Enter ":PackerSync" to download all the plugins   
 Relaunch neovim
