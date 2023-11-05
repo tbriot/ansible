@@ -1,7 +1,7 @@
 - name: Install packages
   become: true
   apt:
-    name: [ "tmux", "fzf", "i3", "jq"]
+    name: [ "tmux", "fzf", "i3", "jq", "tree"]
 
 - name: Install pre-commit
   ansible.builtin.pip:
