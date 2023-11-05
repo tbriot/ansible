@@ -26,6 +26,8 @@
 
     - import_tasks: tasks/terraform.yml
       tags: [ terraform ] 
+      vars:
+        - terraform_docs_version: v0.16.0 
 
     - import_tasks: tasks/projects.yml
       tags: [ projects ] 

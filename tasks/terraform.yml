@@ -6,3 +6,7 @@
 
 - name: Install Terraform latest version
   ansible.builtin.shell: tfswitch --latest
+
+- name: Install terraform-docs # https://github.com/terraform-docs/terraform-docs
+  ansible.builtin.shell: >
+    go install github.com/terraform-docs/terraform-docs@{{ terraform_docs_version }}
