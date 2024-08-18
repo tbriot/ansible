@@ -1,43 +1,20 @@
-- name: Install neovim build prerequisites
+- name: Remove previous Neovim install directory if existing
   become: true
-  ansible.builtin.apt:
-    name: [ "ninja-build", "gettext", "cmake", "unzip", "curl" ]
-
-- name: Remove previous temp directory
-  ansible.builtin.file:
-    path: "{{ neovim_build_dir }}"
-    state: absent
-      
-- name: Remove previous neovim install
   ansible.builtin.file:
     path: "{{ neovim_install_dir }}"
     state: absent
 
-- name: Clone neovim
-  ansible.builtin.git:
-    repo: https://github.com/neovim/neovim
-    dest: "{{ neovim_build_dir }}"
-    depth: 1
-    version: stable
-
-- name: Build neovim
-  ansible.builtin.shell:
-    chdir: "{{ neovim_build_dir }}"
-    cmd: make CMAKE_BUILD_TYPE=Release
-
-- name: Install neovim
-  ansible.builtin.shell:
-    chdir: "{{ neovim_build_dir }}"
-    cmd: "make CMAKE_INSTALL_PREFIX={{ neovim_install_dir }} install"
-
-- name: Get Packer (plugin manager)
-  ansible.builtin.git:
-    repo: https://github.com/wbthomason/packer.nvim
-    dest: ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-    depth: 1
-
-- name: Install neovim plugins prerequisites
+- name: Create Neovim install directory
   become: true
-  ansible.builtin.apt:
-    name: [ "ripgrep" ]
+  ansible.builtin.file:
+    path: "{{ neovim_install_dir }}"
+    state: directory
 
+- name: Download and untar pre-built archives
+  become: true
+  ansible.builtin.unarchive:
+    src: "https://github.com/neovim/neovim/releases/download/{{ neovim_version }}/nvim-linux64.tar.gz"
+    dest: "{{ neovim_install_dir }}"
+    remote_src: yes
+    extra_opts:
+      - "--strip-components=1"

@@ -37,8 +37,8 @@
     - import_tasks: tasks/neovim.yml
       tags: [ neovim ] 
       vars:
-        - neovim_build_dir: /tmp/neovim
-        - neovim_install_dir: ~/.local
+        - neovim_version: v0.10.1
+        - neovim_install_dir: /opt/nvim
 
     - import_tasks: tasks/node-setup.yml
       tags: [ node ] 
