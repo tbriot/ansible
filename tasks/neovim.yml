@@ -21,7 +21,18 @@
  
 # Telescope suggested dependency to speed up regexp searches
 # See https://github.com/BurntSushi/ripgrep
-- name: Install ripgrep tool
+- name: Install ripgrep package
   become: true
   apt:
     name: [ "ripgrep" ] 
+
+# Telescope suggested dependency to speed up files searches
+# https://github.com/sharkdp/fd
+- name: Install fd package
+  become: true
+  apt:
+    name: [ "fd-find" ] 
+
+- name: Create link to fd 
+  ansible.builtin.shell: >
+    ln -s $(which fdfind) ~/.local/bin/fd
