@@ -1,7 +1,21 @@
-- name: Install nodejs and npm
+# See this Stack Overflow solution: https://stackoverflow.com/a/75408337
+- name: Remove nodejs and npm packages
   become: true
-  apt:
+  ansible.builtin.apt:
     name: ["nodejs", "npm"]
+    state: absent
   tags:
     - install
     - node
+
+- name: Install Node Version Manager (NVM)
+  ansible.builtin.shell: >
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+
+- name: Install node
+  ansible.builtin.shell: |
+    export NVM_DIR="$HOME/.config/nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    nvm install node 
+  args:
+    executable: /bin/zsh
