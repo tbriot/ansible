@@ -1,12 +1,10 @@
-- name: Install TFSwitch
-  become: true
+- name: Install TFSwitch from master branch
   ansible.builtin.shell: >
-    curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh
-    | bash
+    curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/master/install.sh 
+    | bash -s -- -b {{ tfswitch_install_dir }}
 
 - name: Install Terraform latest version
-  become: true
-  ansible.builtin.shell: tfswitch --latest
+  ansible.builtin.shell: tfswitch -b {{ tfswitch_install_dir }}/terraform --latest
 
 - name: Install terraform-docs # https://github.com/terraform-docs/terraform-docs
   ansible.builtin.shell: >

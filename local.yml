@@ -27,6 +27,7 @@
     - import_tasks: tasks/terraform.yml
       tags: [ terraform ] 
       vars:
+        - tfswitch_install_dir: $HOME/.local/bin
         - terraform_docs_version: v0.16.0 
 
     - import_tasks: tasks/projects.yml
