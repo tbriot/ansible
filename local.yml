@@ -35,11 +35,14 @@
       vars:
         personal_project_dir: ~/development/tbriot
 
+    - import_tasks: tasks/node-setup.yml
+      tags: [ node ] 
+
+    - import_tasks: tasks/rust.yml
+      tags: [ rust ] 
+
     - import_tasks: tasks/neovim.yml
       tags: [ neovim ] 
       vars:
         - neovim_version: v0.10.1
         - neovim_install_dir: /opt/nvim
-
-    - import_tasks: tasks/node-setup.yml
-      tags: [ node ] 
