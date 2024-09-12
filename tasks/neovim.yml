@@ -35,4 +35,16 @@
 
 - name: Create link to fd 
   ansible.builtin.shell: >
-    ln -s $(which fdfind) ~/.local/bin/fd
+    ln -sf $(which fdfind) ~/.local/bin/fd
+
+# https://github.com/hrsh7th/vscode-langservers-extracted
+- name: Install LSP for JSON/HTML/Javascript/CSS
+  community.general.npm:
+    name: vscode-langservers-extracted
+    global: true
+
+# https://github.com/redhat-developer/yaml-language-server
+- name: Install LSP for YAML files
+  community.general.npm:
+    name: yaml-language-server
+    global: true
