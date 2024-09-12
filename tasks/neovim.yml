@@ -54,3 +54,9 @@
   community.general.npm:
     name: pyright
     global: true
+
+# https://github.com/bash-lsp/bash-language-server
+- name: Install LSP for bash files
+  community.general.npm:
+    name: bash-language-server
+    global: true
