@@ -48,3 +48,9 @@
   community.general.npm:
     name: yaml-language-server
     global: true
+
+# https://github.com/microsoft/pyright
+- name: Install LSP for python files
+  community.general.npm:
+    name: pyright
+    global: true
