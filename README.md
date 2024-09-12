@@ -27,6 +27,12 @@ git clone https://github.com/tbriot/ansible.git $INSTALL_DIR
 Restart your terminal. You should have the zsh shell launched by default now and
 environment variables set up properly.
 
+### Run ansible playbook for a specific tag
+
+```bash
+ansible-playbook local.yml --ask-become-pass --tags neovim
+```
+
 ## Switch github repository to SSH
 (otherwise you will not be able to push changes)
 
