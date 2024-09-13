@@ -60,3 +60,10 @@
   community.general.npm:
     name: bash-language-server
     global: true
+
+# https://github.com/artempyanykh/marksman
+- name: Download marksman binary
+  ansible.builtin.get_url:
+    url: https://github.com/artempyanykh/marksman/releases/download/2023-12-09/marksman-linux-x64
+    dest: $HOME/.local/bin/marksman
+    mode: +x
