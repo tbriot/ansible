@@ -22,7 +22,7 @@
     - import_tasks: tasks/golang.yml
       tags: [ golang ] 
       vars:
-        - go_download_archive: go1.21.3.linux-amd64.tar.gz 
+        - go_download_archive: go1.23.2.linux-amd64.tar.gz 
 
     - import_tasks: tasks/terraform.yml
       tags: [ terraform ] 
