@@ -33,6 +33,14 @@ environment variables set up properly.
 ansible-playbook local.yml --ask-become-pass --tags neovim
 ```
 
+## Install a Nerd Font
+A Nerd Font has to be installed and configured in your Windows Terminal so that all glyphs used by the `starship` shell prompt are displayed nicely.
+
+
+Most popular Nerd Font `Fire Code` can be downloaded here: https://github.com/tonsky/FiraCode
+
+Download the zip file, unzip it, install fonts in Windows using right-click 'Install', then configure your Windows Terminal to use a `Fire Code` font.
+
 ## Switch github repository to SSH
 (otherwise you will not be able to push changes)
 
