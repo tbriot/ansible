@@ -3,10 +3,6 @@
   apt:
     name: [ "tmux", "fzf", "i3", "jq", "tree"]
 
-- name: Install pre-commit
-  ansible.builtin.pip:
-    name: pre-commit
-
 # https://github.com/charmbracelet/glow
 - name: Install Glow
   become: true

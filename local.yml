@@ -9,10 +9,10 @@
 
     - import_tasks: tasks/ssh.yml
       tags: [ ssh ] 
-      vars:
-        source_key: ssh/id_ed25519_tbriot
-        dest_key: ~/.ssh/id_ed25519_tbriot
-
+      vars: {
+        "source_key": "ssh/id_ed25519_tbriot",
+        "dest_key": "~/.ssh/id_ed25519_tbriot"
+      }
     - import_tasks: tasks/zsh.yml
       tags: [ zsh ] 
 
@@ -21,20 +21,20 @@
 
     - import_tasks: tasks/golang.yml
       tags: [ golang ] 
-      vars:
-        - go_download_archive: go1.23.2.linux-amd64.tar.gz 
-
+      vars: {
+        "go_download_archive": "go1.24.4.linux-amd64.tar.gz"
+      }
     - import_tasks: tasks/terraform.yml
       tags: [ terraform ] 
-      vars:
-        - tfswitch_install_dir: $HOME/.local/bin
-        - terraform_docs_version: v0.16.0 
-
+      vars: {
+        "tfswitch_install_dir": "$HOME/.local/bin",
+        "terraform_docs_version": "v0.20.0" 
+      }
     - import_tasks: tasks/projects.yml
       tags: [ projects ] 
-      vars:
-        personal_project_dir: ~/development/tbriot
-
+      vars: {
+        "personal_project_dir": "~/projects/tbriot"
+      }
     - import_tasks: tasks/node-setup.yml
       tags: [ node ] 
 
@@ -43,6 +43,7 @@
 
     - import_tasks: tasks/neovim.yml
       tags: [ neovim ] 
-      vars:
-        - neovim_version: v0.10.1
-        - neovim_install_dir: /opt/nvim
+      vars: {
+        "neovim_version": "v0.10.1",
+        "neovim_install_dir": "/opt/nvim"
+      }
