@@ -9,7 +9,7 @@ Note: git is also installed
 
 ## Clone repository 
 ```bash
-INSTALL_DIR=$HOME/development/tbriot/ansible
+INSTALL_DIR=$HOME/projects/tbriot/ansible
 mkdir -p $INSTALL_DIR && cd $INSTALL_DIR
 git clone https://github.com/tbriot/ansible.git $INSTALL_DIR
 ```

@@ -1,8 +1,8 @@
 - hosts: localhost
   connection: local
   tasks: 
-    - import_tasks: tasks/core.yml
-      tags: [ core ] 
+    - import_tasks: tasks/prerequisites.yml
+      tags: [ prerequisites ] 
 
     - import_tasks: tasks/productivity-tools.yml
       tags: [ productivity ] 

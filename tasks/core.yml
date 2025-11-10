@@ -1,9 +1,0 @@
-- name: Install core system packages
-  become: true
-  apt:
-    name: [ "curl", "gzip", "unzip", "git", "python3-pip", "tar", "xclip" ]
-
-- name: Install core system packages 2
-  become: true
-  apt:
-    name: [ "gnupg", "software-properties-common"]
