@@ -1,4 +1,4 @@
 - name: Install prerequisites packages
   become: true
-  apt:
+  ansible.builtin.apt:
     name: [ "gnupg", "software-properties-common", "curl", "gzip", "unzip", "git", "python3-pip", "tar", "xclip" ]
