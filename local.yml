@@ -13,11 +13,21 @@
         "source_key": "ssh/id_ed25519_tbriot",
         "dest_key": "~/.ssh/id_ed25519_tbriot"
       }
+
     - import_tasks: tasks/shell.yml
       tags: [ shell ] 
 
+    - import_tasks: tasks/projects.yml
+      tags: [ projects ] 
+      vars: {
+        "personal_project_dir": "~/project"
+      }
+
     - import_tasks: tasks/dotfiles.yml
       tags: [ dotfiles ] 
+      vars: {
+      "clone_dir": "~/project/tbriot-dotfiles"
+      }
 
     - import_tasks: tasks/golang.yml
       tags: [ golang ] 
@@ -29,11 +39,6 @@
       vars: {
         "tfswitch_install_dir": "$HOME/.local/bin",
         "terraform_docs_version": "v0.20.0" 
-      }
-    - import_tasks: tasks/projects.yml
-      tags: [ projects ] 
-      vars: {
-        "personal_project_dir": "~/projects/tbriot"
       }
     - import_tasks: tasks/node-setup.yml
       tags: [ node ] 

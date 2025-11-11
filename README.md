@@ -41,6 +41,10 @@ Most popular Nerd Font `Fire Code` can be downloaded here: https://github.com/to
 
 Download the zip file, unzip it, install fonts in Windows using right-click 'Install', then configure your Windows Terminal to use a `Fire Code` font.
 
+
+## Update git config
+Edit `~/.config/git/config` to set the proper `user.username` and `user.email` values.
+
 ## Switch github repository to SSH
 (otherwise you will not be able to push changes)
 
