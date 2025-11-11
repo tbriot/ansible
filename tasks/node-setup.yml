@@ -18,4 +18,4 @@
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
     nvm install node 
   args:
-    executable: /bin/zsh
+    executable: /bin/bash

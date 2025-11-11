@@ -1,0 +1,4 @@
+- name: Install VIM
+  become: true
+  ansible.builtin.apt:
+    name: [ "vim" ]

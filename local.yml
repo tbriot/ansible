@@ -32,26 +32,24 @@
       "clone_dir": "~/project/tbriot-dotfiles"
       }
 
+    - import_tasks: tasks/vim.yml
+      tags: [ vim ] 
+
     - import_tasks: tasks/golang.yml
       tags: [ golang ] 
       vars: {
-        "go_download_archive": "go1.24.4.linux-amd64.tar.gz"
+        "go_download_archive": "go1.25.4.linux-amd64.tar.gz"
       }
+
     - import_tasks: tasks/terraform.yml
       tags: [ terraform ] 
       vars: {
         "tfswitch_install_dir": "$HOME/.local/bin",
         "terraform_docs_version": "v0.20.0" 
       }
+
     - import_tasks: tasks/node-setup.yml
       tags: [ node ] 
 
     - import_tasks: tasks/rust.yml
       tags: [ rust ] 
-
-    - import_tasks: tasks/neovim.yml
-      tags: [ neovim ] 
-      vars: {
-        "neovim_version": "v0.10.1",
-        "neovim_install_dir": "/opt/nvim"
-      }
