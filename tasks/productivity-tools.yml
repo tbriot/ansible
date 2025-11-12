@@ -1,4 +1,4 @@
 - name: Install packages
   become: true
   ansible.builtin.apt:
-    name: [ "tmux", "fzf", "jq", "tree"]
+    name: [ "vim", "tmux", "fzf", "jq", "tree"]
