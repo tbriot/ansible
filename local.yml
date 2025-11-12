@@ -27,9 +27,10 @@
       }
 
     - import_tasks: tasks/dotfiles.yml
-      tags: [ dotfiles ] 
+      tags: [ dotfiles ]
       vars: {
-      "clone_dir": "~/project/tbriot-dotfiles"
+      "clone_dir": "~/project/tbriot-dotfiles",
+      "bash_config_dir": "$HOME/.config/bash"
       }
 
     - import_tasks: tasks/vim.yml

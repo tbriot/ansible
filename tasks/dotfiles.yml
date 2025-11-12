@@ -19,3 +19,28 @@
   ansible.builtin.file:
     path: ~/.gitconfig
     state: absent
+
+- name: Ensure .bash_history directory exists
+  ansible.builtin.file:
+    path: ~/.cache/bash
+    state: directory
+    mode: '0755'
+
+- name: Ensure .bash_history file exists
+  ansible.builtin.file:
+    path: ~/.cache/bash/.bash_history
+    state: touch
+    mode: '0600'
+
+- name: Source custom bashrc in ~/.bashrc (with existence check)
+  ansible.builtin.blockinfile:
+    path: ~/.bashrc
+    block: |
+      # Source custom bash configuration if it exists
+      export BASHCONFIGDIR="{{ bash_config_dir }}"
+      if [ -f $BASHCONFIGDIR/.bashrc ]; then
+          source $BASHCONFIGDIR/.bashrc
+      fi
+    state: present
+    create: true
+    marker: "# {mark} ANSIBLE MANAGED BLOCK - Custom bashrc sourcing"
