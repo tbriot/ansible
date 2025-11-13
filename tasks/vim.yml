@@ -8,3 +8,9 @@
     path: ~/.vim/undodir
     state: directory
     mode: '0755'
+
+- name: Create vim swap directory
+  ansible.builtin.file:
+    path: ~/.vim/swap
+    state: directory
+    mode: '0755'
