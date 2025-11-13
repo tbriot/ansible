@@ -45,6 +45,9 @@ Download the zip file, unzip it, install fonts in Windows using right-click 'Ins
 ## Update git config
 Edit `~/.config/git/config` to set the proper `user.username` and `user.email` values.
 
+## Update AWS CLI config
+Edit `~/.aws/config` to set AWS profiles with proper AWS accounts, roles, regions, sso sessions...
+
 ## Switch github repository to SSH
 (otherwise you will not be able to push changes)
 
