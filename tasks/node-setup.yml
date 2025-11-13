@@ -1,12 +1,15 @@
 # See this Stack Overflow solution: https://stackoverflow.com/a/75408337
+- name: Install Node.js dependencies
+  become: true
+  ansible.builtin.apt:
+    name: ["libatomic1"]
+    state: present
+
 - name: Remove nodejs and npm packages
   become: true
   ansible.builtin.apt:
     name: ["nodejs", "npm"]
     state: absent
-  tags:
-    - install
-    - node
 
 - name: Install Node Version Manager (NVM)
   ansible.builtin.shell: >
