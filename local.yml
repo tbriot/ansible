@@ -33,6 +33,9 @@
       "bash_config_dir": "$HOME/.config/bash"
       }
 
+    - import_tasks: tasks/aws.yml
+      tags: [ aws ] 
+
     - import_tasks: tasks/vim.yml
       tags: [ vim ] 
 
