@@ -6,15 +6,41 @@
 - name: Cloning dotfiles
   ansible.builtin.git:
     repo: https://github.com/tbriot/dotfiles.git
-    dest: ~/.dotfiles
+    dest:  "{{ clone_dir }}"
     update: true
     accept_hostkey: true
     version: main 
+    #version: feat-revisit-config-nov25
 
 - name: Installing dotfiles
-  ansible.builtin.shell: cd ~/.dotfiles && ./install.sh
+  ansible.builtin.shell:   "cd {{ clone_dir }} && ./install.sh"
 
 - name: Making sure .gitconfig is absent
   ansible.builtin.file:
     path: ~/.gitconfig
     state: absent
+
+- name: Ensure .bash_history directory exists
+  ansible.builtin.file:
+    path: ~/.cache/bash
+    state: directory
+    mode: '0755'
+
+- name: Ensure .bash_history file exists
+  ansible.builtin.file:
+    path: ~/.cache/bash/.bash_history
+    state: touch
+    mode: '0600'
+
+- name: Source custom bashrc in ~/.bashrc (with existence check)
+  ansible.builtin.blockinfile:
+    path: ~/.bashrc
+    block: |
+      # Source custom bash configuration if it exists
+      export BASHCONFIGDIR="{{ bash_config_dir }}"
+      if [ -f $BASHCONFIGDIR/.bashrc ]; then
+          source $BASHCONFIGDIR/.bashrc
+      fi
+    state: present
+    create: true
+    marker: "# {mark} ANSIBLE MANAGED BLOCK - Custom bashrc sourcing"

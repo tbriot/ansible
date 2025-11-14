@@ -1,0 +1,16 @@
+- name: Install VIM
+  become: true
+  ansible.builtin.apt:
+    name: [ "vim" ]
+
+- name: Create vim undodir
+  ansible.builtin.file:
+    path: ~/.vim/undodir
+    state: directory
+    mode: '0755'
+
+- name: Create vim swap directory
+  ansible.builtin.file:
+    path: ~/.vim/swap
+    state: directory
+    mode: '0755'

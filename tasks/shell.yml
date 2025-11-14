@@ -1,0 +1,5 @@
+# See https://starship.rs/
+- name: Install starship shell prompt. This may take a few minutes. Please be patient.
+  become: true
+  ansible.builtin.shell: >
+    curl -sS https://starship.rs/install.sh | sh -s -- --force

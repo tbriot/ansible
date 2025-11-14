@@ -1,0 +1,46 @@
+- name: Install prerequisites packages for AWS CLI
+  become: true
+  ansible.builtin.apt:
+    # glibc package does not exist as a package in Ubuntu. Use libc6 instead.
+    name: [ "curl", "unzip", "libc6", "groff", "less" ]
+
+- name: Check if AWS CLI is already installed
+  ansible.builtin.command: aws --version
+  register: aws_cli_check
+  failed_when: false
+  changed_when: false
+
+- name: Download AWS CLI installer zip file
+  ansible.builtin.get_url:
+    url: "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
+    dest: /tmp/awscliv2.zip
+
+- name: Extract installer zip file
+  ansible.builtin.unarchive:
+    src: /tmp/awscliv2.zip
+    dest: /tmp
+
+- name: Run AWS CLI install
+  become: true
+  ansible.builtin.shell: /tmp/aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update
+  when: aws_cli_check.rc == 0
+
+- name: Run AWS CLI install (fresh install)
+  become: true
+  ansible.builtin.shell: /tmp/aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli
+  when: aws_cli_check.rc != 0
+
+- name: Verify AWS CLI installation
+  ansible.builtin.command: aws --version
+  register: aws_cli_verify
+  changed_when: false
+
+- name: Remove AWS CLI temp installation dir
+  ansible.builtin.file:
+    path: /tmp/aws
+    state: absent
+
+- name: Remove AWS CLI installer zip file
+  ansible.builtin.file:
+    path: /tmp/awscliv2.zip
+    state: absent

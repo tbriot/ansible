@@ -1,16 +1,20 @@
 # See this Stack Overflow solution: https://stackoverflow.com/a/75408337
+- name: Install Node.js dependencies
+  become: true
+  ansible.builtin.apt:
+    name: ["libatomic1"]
+    state: present
+
 - name: Remove nodejs and npm packages
   become: true
   ansible.builtin.apt:
     name: ["nodejs", "npm"]
     state: absent
-  tags:
-    - install
-    - node
 
 - name: Install Node Version Manager (NVM)
-  ansible.builtin.shell: >
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+  ansible.builtin.shell: |
+    export XDG_CONFIG_HOME=$HOME/.config
+    PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash'  
 
 - name: Install node
   ansible.builtin.shell: |
@@ -18,4 +22,4 @@
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
     nvm install node 
   args:
-    executable: /bin/zsh
+    executable: /bin/bash
