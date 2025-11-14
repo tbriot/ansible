@@ -1,3 +1,8 @@
+- name: Remove existing pyenv directory
+  ansible.builtin.file:
+    path: ~/.pyenv
+    state: absent
+
 - name: Install pyenv tool
   ansible.builtin.shell: >
     curl -fsSL https://pyenv.run | bash
