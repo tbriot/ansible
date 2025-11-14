@@ -45,6 +45,9 @@ Most popular Nerd Font `Fire Code` can be downloaded here: https://github.com/to
 
 Download the zip file, unzip it, install fonts in Windows using right-click 'Install', then configure your Windows Terminal to use a `Fire Code` font.
 
+## Install color theme for Windows Terminal
+Download `One Half Dark Mode` color theme for Windows Terminal from the following repo: https://github.com/sonph/onehalf
+Follow installation instructions.
 
 ## Update git config
 Edit `~/.config/git/config` to set the proper `user.username` and `user.email` values.
