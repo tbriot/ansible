@@ -23,13 +23,13 @@
     - import_tasks: tasks/projects.yml
       tags: [ projects ] 
       vars: {
-        "personal_project_dir": "~/project"
+        "personal_project_dir": "~/projects"
       }
 
     - import_tasks: tasks/dotfiles.yml
       tags: [ dotfiles ]
       vars: {
-      "clone_dir": "~/project/tbriot-dotfiles",
+      "clone_dir": "~/projects/tbriot/dotfiles",
       "bash_config_dir": "$HOME/.config/bash"
       }
 
