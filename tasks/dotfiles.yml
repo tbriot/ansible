@@ -9,8 +9,8 @@
     dest:  "{{ clone_dir }}"
     update: true
     accept_hostkey: true
-    #version: main 
-    version: feat-revisit-config-nov25
+    version: main 
+    #version: feat-revisit-config-nov25
 
 - name: Installing dotfiles
   ansible.builtin.shell:   "cd {{ clone_dir }} && ./install.sh"
