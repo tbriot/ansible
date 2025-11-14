@@ -56,8 +56,8 @@ Edit `~/.aws/config` to set AWS profiles with proper AWS accounts, roles, region
 (otherwise you will not be able to push changes)
 
 ```bash
-cd ~/development/tbriot/ansible
+cd ~/projects/tbriot/ansible
 git remote set-url origin git@github.com:tbriot/ansible.git
-cd ~/.dotfiles
+cd ~/projects/tbriot/dotfiles
 git remote set-url origin git@github.com:tbriot/dotfiles.git
 ```
