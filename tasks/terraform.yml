@@ -4,8 +4,8 @@
     | bash -s -- -b {{ tfswitch_install_dir }}
 
 - name: Install Terraform latest version
-  ansible.builtin.shell: tfswitch -b {{ tfswitch_install_dir }}/terraform --latest
+  ansible.builtin.shell: "{{ tfswitch_install_dir }}/tfswitch -b {{ tfswitch_install_dir }}/terraform --latest"
 
 - name: Install terraform-docs # https://github.com/terraform-docs/terraform-docs
   ansible.builtin.shell: >
-    go install github.com/terraform-docs/terraform-docs@{{ terraform_docs_version }}
+    /usr/local/go/bin/go install github.com/terraform-docs/terraform-docs@{{ terraform_docs_version }}
