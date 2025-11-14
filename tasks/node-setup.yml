@@ -12,7 +12,8 @@
     state: absent
 
 - name: Install Node Version Manager (NVM)
-  ansible.builtin.shell: >
+  ansible.builtin.shell: |
+    export XDG_CONFIG_HOME=$HOME/.config
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 
 - name: Install node

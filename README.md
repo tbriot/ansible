@@ -32,6 +32,11 @@ environment variables set up properly.
 ansible-playbook local.yml --ask-become-pass --tags "prerequisites,productivity,shell,python,dotfiles"
 ```
 
+## Source `.bashrc` file
+```bash
+. ~/.bashrc
+```
+
 ## Install a Nerd Font
 A Nerd Font has to be installed and configured in your Windows Terminal so that all glyphs used by the `starship` shell prompt are displayed nicely.
 
