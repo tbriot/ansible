@@ -44,3 +44,6 @@
     state: present
     create: true
     marker: "# {mark} ANSIBLE MANAGED BLOCK - Custom bashrc sourcing"
+
+- name: Source ~/.bashrc file
+  ansible.builtin.shell: source ~/.bashrc
