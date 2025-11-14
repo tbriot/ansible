@@ -14,7 +14,7 @@
 - name: Install Node Version Manager (NVM)
   ansible.builtin.shell: |
     export XDG_CONFIG_HOME=$HOME/.config
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+    PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash'  
 
 - name: Install node
   ansible.builtin.shell: |
