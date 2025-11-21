@@ -36,3 +36,10 @@
       - docker-compose-plugin
     state: present
     update_cache: yes
+
+- name: Add user tbriot to docker group
+  become: true
+  ansible.builtin.user:
+    name: tbriot
+    groups: docker
+    append: yes
