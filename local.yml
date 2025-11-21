@@ -55,6 +55,9 @@
     - import_tasks: tasks/docker.yml
       tags: [ docker ] 
 
+    - import_tasks: tasks/github-cli.yml
+      tags: [ github ] 
+
     - import_tasks: tasks/node-setup.yml
       tags: [ node ] 
 
@@ -62,4 +65,4 @@
       tags: [ rust ] 
 
     - import_tasks: tasks/k8s.yml
-      tags: [ k8s ] 
+      tags: [ k8s ]
